@@ -1,0 +1,112 @@
+#include <stdio.h>
+#include <string.h>
+
+#define ARRAY_LENGTH(arr) sizeof(arr) / sizeof(arr[0])
+
+
+
+void reverseArray(int array[], int len)
+{
+    for (int i = 0; i < len / 2; i++)
+    {
+        int temp = array[i];
+        array[i] = array[len - 1 - i];
+        array[len - 1 - i] = temp;
+    }
+}
+
+void sortAscendingArray(int arr[], int len)
+{
+    for (int j = 0; j < len; j++)
+    {
+        for (int i = 0; i < len - j - 1; i++)
+        {
+            if (arr[i] > arr[i + 1])
+            {
+                int temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+            }
+        }
+    }
+}
+void sortDescendingArray(int arr[], int len)
+{
+    for (int j = 0; j < len; j++)
+    {
+        for (int i = 0; i < len - j - 1; i++)
+        {
+            if (arr[i] < arr[i + 1])
+            {
+                int temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+            }
+        }
+    }
+}
+
+void emptyArray(int array[], int len)
+{
+    memset(array, 0, len * sizeof(int));
+}
+
+int maxArray(int array[], int len)
+{
+    int max = array[0];
+    for (int i = 0; i < len; i++)
+        if (max < array[i])
+            max = array[i];
+    return max;
+}
+
+int minArray(int array[], int len)
+{
+    int min = array[0];
+    for (int i = 0; i < len; i++)
+        if (min > array[i])
+            min = array[i];
+    return min;
+}
+
+int sumArray(int array[], int len)
+{
+    int arraySum = 0;
+    for (int i = 0; i < len; i++)
+        arraySum += array[i];
+    return arraySum;
+}
+
+int productArray(int array[], int len)
+{
+    int arrayProduct = 1;
+    for (int i = 0; i < len; i++)
+        arrayProduct *= array[i];
+    return arrayProduct;
+}
+
+void deleteElementArray(int arr[], int element, int *len)
+{
+    for (int i = 0; i < *(len); i++)
+    {
+        if (arr[i] == element)
+        {
+            for (int j = i; j < *(len)-1; j++)
+            {
+                arr[j] = arr[j + 1];
+            }
+            (*len)--;
+            break;
+        }
+    }
+}
+
+int main()
+{
+    int arr[15] = {1, 12, 33, 44, 51, 67, 7, 98, 9, 0, 33, 90, 45, 13, 74};
+
+    int len = ARRAY_LENGTH(arr);
+    printArray(arr, len);
+
+    return 0;
+}

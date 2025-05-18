@@ -19,6 +19,38 @@ void reverseArray(int array[], int len)
     }
 }
 
+void sortAscendingArray(int arr[], int len)
+{
+    for (int j = 0; j < len; j++)
+    {
+        for (int i = 0; i < len - j - 1; i++)
+        {
+            if (arr[i] > arr[i + 1])
+            {
+                int temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+            }
+        }
+    }
+}
+
+void sortDescendingArray(int arr[], int len)
+{
+    for (int j = 0; j < len; j++)
+    {
+        for (int i = 0; i < len - j - 1; i++)
+        {
+            if (arr[i] < arr[i + 1])
+            {
+                int temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+            }
+        }
+    }
+}
+
 int main()
 {
 

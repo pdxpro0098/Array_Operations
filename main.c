@@ -51,6 +51,24 @@ void sortDescendingArray(int arr[], int len)
     }
 }
 
+int maxArray(int array[], int len)
+{
+    int max = array[0];
+    for (int i = 0; i < len; i++)
+        if (max < array[i])
+            max = array[i];
+    return max;
+}
+
+int minArray(int array[], int len)
+{
+    int min = array[0];
+    for (int i = 0; i < len; i++)
+        if (min > array[i])
+            min = array[i];
+    return min;
+}
+
 int main()
 {
 

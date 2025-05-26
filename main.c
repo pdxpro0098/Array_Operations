@@ -69,6 +69,22 @@ int minArray(int array[], int len)
     return min;
 }
 
+void deleteElementArray(int arr[], int element, int *len)
+{
+    for (int i = 0; i < *(len); i++)
+    {
+        if (arr[i] == element)
+        {
+            for (int j = i; j < *(len)-1; j++)
+            {
+                arr[j] = arr[j + 1];
+            }
+            (*len)--;
+            break;
+        }
+    }
+}
+
 int main()
 {
 

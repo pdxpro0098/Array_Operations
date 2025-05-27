@@ -60,6 +60,25 @@ int maxArray(int array[], int len)
     return max;
 }
 
+int secondMaxArray(int array[], int len)
+{
+    int max1 = array[0];
+    int max2 = -2147483648;
+    for (int i = 0; i < len; i++)
+    {
+        if (max1 < array[i])
+        {
+            max2 = max1;
+            max1 = array[i];
+        }
+        else if (array[i] > max2 && array[i] < max1)
+        {
+            max2 = array[i];
+        }
+    }
+    return max2;
+}
+
 int minArray(int array[], int len)
 {
     int min = array[0];
@@ -67,6 +86,30 @@ int minArray(int array[], int len)
         if (min > array[i])
             min = array[i];
     return min;
+}
+
+int secondMinArray(int array[], int len)
+{
+    int max1 = array[0];
+    int max2 = 2147483648;
+    for (int i = 0; i < len; i++)
+    {
+        if (max1 > array[i])
+        {
+            max2 = max1;
+            max1 = array[i];
+        }
+        else if (array[i] < max2 && array[i] > max1)
+        {
+            max2 = array[i];
+        }
+    }
+    return max2;
+}
+
+void emptyArray(int array[], int len)
+{
+    memset(array, 0, len * sizeof(int));
 }
 
 void deleteElementArray(int arr[], int element, int *len)

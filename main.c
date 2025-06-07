@@ -107,10 +107,27 @@ int secondMinArray(int array[], int len)
     return max2;
 }
 
+int sumArray(int array[], int len)
+{
+    int arraySum = 0;
+    for (int i = 0; i < len; i++)
+        arraySum += array[i];
+    return arraySum;
+}
+
+int productArray(int array[], int len)
+{
+    int arrayProduct = 1;
+    for (int i = 0; i < len; i++)
+        arrayProduct *= array[i];
+    return arrayProduct;
+}
+
 void emptyArray(int array[], int len)
 {
     memset(array, 0, len * sizeof(int));
 }
+
 
 void deleteElementArray(int arr[], int element, int *len)
 {

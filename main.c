@@ -170,8 +170,33 @@ int countEven(int arr[], int length)
     return evenCount;
 }
 
+int countPrime(int arr[], int length)
+{
+    int nonPrimeCount = 0;
+    for (int i = 0; i < length; i++)
+    {
+        if (arr[i] < 2)
+        {
+            nonPrimeCount++;
+            continue;
+        }
+
+        for (int j = 2; j < arr[i]; j++)
+        {
+            if (arr[i] % j == 0)
+            {
+                nonPrimeCount++;
+                break;
+            }
+        }
+    }
+    return length - nonPrimeCount;
+}
+
 int main()
 {
+    int arr[8] = {12, 34, 56, 78, 17, 19, 11, 91};
+    printf("%d", countPrime(arr, 8));
 
     return 0;
 }

@@ -193,10 +193,19 @@ int countPrime(int arr[], int length)
     return length - nonPrimeCount;
 }
 
+int nthMax(int arr[], int length, int nthTerm)
+{
+    sortDescendingArray(arr, length);
+    if (nthTerm > length)
+    {
+        printf("array index out of bund ");
+        return -1;
+    }
+    return arr[nthTerm - 1];
+};
+
 int main()
 {
-    int arr[8] = {12, 34, 56, 78, 17, 19, 11, 91};
-    printf("%d", countPrime(arr, 8));
 
     return 0;
 }

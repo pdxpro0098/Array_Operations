@@ -9,7 +9,7 @@ void printArray(int array[], int length)
         printf("%d ", array[i]);
 }
 
-void reverseArray(int array[], int length)
+void reverse(int array[], int length)
 {
     for (int i = 0; i < length / 2; i++)
     {
@@ -19,7 +19,7 @@ void reverseArray(int array[], int length)
     }
 }
 
-void sortAscendingArray(int arr[], int length)
+void sortAscending(int arr[], int length)
 {
     for (int j = 0; j < length; j++)
     {
@@ -35,7 +35,7 @@ void sortAscendingArray(int arr[], int length)
     }
 }
 
-void sortDescendingArray(int arr[], int length)
+void sortDescending(int arr[], int length)
 {
     for (int j = 0; j < length; j++)
     {
@@ -56,23 +56,7 @@ void emptyArray(int array[], int length)
     memset(array, 0, length * sizeof(int));
 }
 
-void deleteElementArray(int arr[], int element, int *length)
-{
-    for (int i = 0; i < *(length); i++)
-    {
-        if (arr[i] == element)
-        {
-            for (int j = i; j < *(length)-1; j++)
-            {
-                arr[j] = arr[j + 1];
-            }
-            (*length)--;
-            break;
-        }
-    }
-}
-
-int maxArray(int array[], int length)
+int maximum(int array[], int length)
 {
     int max = array[0];
     for (int i = 0; i < length; i++)
@@ -81,7 +65,7 @@ int maxArray(int array[], int length)
     return max;
 }
 
-int secondMaxArray(int array[], int length)
+int secondMaximin(int array[], int length)
 {
     int max1 = array[0];
     int max2 = -2147483648;
@@ -100,7 +84,7 @@ int secondMaxArray(int array[], int length)
     return max2;
 }
 
-int minArray(int array[], int length)
+int minimum(int array[], int length)
 {
     int min = array[0];
     for (int i = 0; i < length; i++)
@@ -109,7 +93,7 @@ int minArray(int array[], int length)
     return min;
 }
 
-int secondMinArray(int array[], int length)
+int secondMinimum(int array[], int length)
 {
     int max1 = array[0];
     int max2 = 2147483648;
@@ -195,7 +179,7 @@ int countPrime(int arr[], int length)
 
 int nthMax(int arr[], int length, int nthTerm)
 {
-    sortDescendingArray(arr, length);
+    sortDescending(arr, length);
     if (nthTerm > length)
     {
         printf("array index out of bund ");
@@ -204,8 +188,57 @@ int nthMax(int arr[], int length, int nthTerm)
     return arr[nthTerm - 1];
 };
 
+void deleteElement(int arr[], int element, int *length)
+{
+    for (int i = 0; i < *(length); i++)
+    {
+        if (arr[i] == element)
+        {
+            for (int j = i; j < *(length)-1; j++)
+            {
+                arr[j] = arr[j + 1];
+            }
+            (*length)--;
+            break;
+        }
+    }
+}
+
+int pushBack(int arr[], int size, int capacity, int element)
+{
+
+    if (size > capacity)
+    {
+        printf("not enough space to insert element");
+        return -1;
+    }
+    arr[size] = element;
+    return 1;
+}
+
+int popBack(int arr[], int size)
+{
+    int lastElement;
+    for (int i = size - 1; i >= 0; i--)
+    {
+        if (arr[i] != 0)
+        {
+            lastElement = arr[i];
+            break;
+        }
+    }
+    deleteElement(arr, lastElement, &size);
+}
+
+
 int main()
 {
+
+    int arr[5] = {12, 34, 56};
+
+    popBack(arr, 5);
+
+    printArray(arr, 5);
 
     return 0;
 }

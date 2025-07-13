@@ -188,7 +188,7 @@ int nthMax(int arr[], int length, int nthTerm)
     return arr[nthTerm - 1];
 };
 
-void deleteElement(int arr[], int element, int *length)
+int deleteElement(int arr[], int element, int *length)
 {
     for (int i = 0; i < *(length); i++)
     {
@@ -244,20 +244,26 @@ int pushBack(int arr[], int size, int capacity, int element)
 int popBack(int arr[], int size)
 {
     int lastElement;
-    for (int i = size - 1; i >= 0; i--)
+    for (int i = size; i > 0; i--)
     {
         if (arr[i] != 0)
         {
-            lastElement = arr[i];
+            lastElement = arr[i-1];
             break;
         }
     }
-    deleteElement(arr, lastElement, &size);
+
+    printf("%d", lastElement);
+    // deleteElement(arr, lastElement, &size);
     return 1;
 }
 
 int main()
 {
+    int arr[5] = {1, 2, 3, 4, 5};
+    popBack(arr, ARRAY_LENGTH(arr));
+
+    
 
     return 0;
 }

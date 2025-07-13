@@ -248,13 +248,11 @@ int popBack(int arr[], int size)
     {
         if (arr[i] != 0)
         {
-            lastElement = arr[i-1];
+            lastElement = arr[i - 1];
             break;
         }
     }
-
-    printf("%d", lastElement);
-    // deleteElement(arr, lastElement, &size);
+    deleteElement(arr, lastElement, &size);
     return 1;
 }
 
@@ -262,8 +260,6 @@ int main()
 {
     int arr[5] = {1, 2, 3, 4, 5};
     popBack(arr, ARRAY_LENGTH(arr));
-
-    
 
     return 0;
 }

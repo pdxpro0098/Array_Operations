@@ -202,6 +202,31 @@ void deleteElement(int arr[], int element, int *length)
             break;
         }
     }
+    return 1;
+}
+
+int insertElement(int arr[], int *size, int capacity, int element, int index)
+{
+    if (*size >= capacity)
+    {
+        printf("Not enough space to insert element\n");
+        return 0;
+    }
+
+    if (index < 0 || index > *size)
+    {
+        printf("Invalid index\n");
+        return 0;
+    }
+
+    int i = *size;
+    for (i = *size; i > index; i--)
+    {
+        arr[i] = arr[i - 1];
+    }
+    arr[i] = element;
+    (*size)++;
+    return 1;
 }
 
 int pushBack(int arr[], int size, int capacity, int element)
@@ -209,8 +234,8 @@ int pushBack(int arr[], int size, int capacity, int element)
 
     if (size > capacity)
     {
-        printf("not enough space to insert element");
-        return -1;
+        printf("Not enough space to insert element");
+        return 0;
     }
     arr[size] = element;
     return 1;
@@ -228,17 +253,11 @@ int popBack(int arr[], int size)
         }
     }
     deleteElement(arr, lastElement, &size);
+    return 1;
 }
-
 
 int main()
 {
-
-    int arr[5] = {12, 34, 56};
-
-    popBack(arr, 5);
-
-    printArray(arr, 5);
 
     return 0;
 }

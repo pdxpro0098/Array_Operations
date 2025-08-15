@@ -141,6 +141,19 @@ int countOdd(int arr[], int length)
     return oddCount;
 }
 
+void sortOdd(int array[], int *length)
+{
+    int j = 0;
+    for (int i = 0; i < (*length); i++)
+    {
+        if (array[i] % 2 != 0)
+        {
+            array[j++] = array[i++];
+        }
+    }
+    *length = j;
+}
+
 int countEven(int arr[], int length)
 {
     int evenCount = 0;
@@ -153,6 +166,20 @@ int countEven(int arr[], int length)
     }
     return evenCount;
 }
+
+void sortEven(int array[], int *length)
+{
+    int j = 0;
+    for (int i = 0; i < (*length); i++)
+    {
+        if (array[i] % 2 == 0)
+        {
+            array[j++] = array[i++];
+        }
+    }
+    *length = j;
+}
+
 
 int countPrime(int arr[], int length)
 {
@@ -259,7 +286,6 @@ int popBack(int arr[], int size)
 int main()
 {
     int arr[5] = {1, 2, 3, 4, 5};
-    popBack(arr, ARRAY_LENGTH(arr));
 
     return 0;
 }

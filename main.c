@@ -95,21 +95,21 @@ int minimum(int array[], int length)
 
 int secondMinimum(int array[], int length)
 {
-    int max1 = array[0];
-    int max2 = 2147483648;
+    int min1 = array[0];
+    int min2 = 2147483648;
     for (int i = 0; i < length; i++)
     {
-        if (max1 > array[i])
+        if (min1 > array[i])
         {
-            max2 = max1;
-            max1 = array[i];
+            min2 = min1;
+            min1 = array[i];
         }
-        else if (array[i] < max2 && array[i] > max1)
+        else if (array[i] < min2 && array[i] > min1)
         {
-            max2 = array[i];
+            min2 = array[i];
         }
     }
-    return max2;
+    return min2;
 }
 
 int sumArray(int array[], int length)
